@@ -21,6 +21,7 @@ namespace VladimirKolchinKt_41_22.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogError("Method was called");
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -29,5 +30,24 @@ namespace VladimirKolchinKt_41_22.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost(Name = "AddNewSummary")]
+        public string[] AddNewSummary([FromBody] string newSummary)
+        {
+            _logger.LogError("New method was called");
+
+            // Преобразуем массив Summaries в список
+            var list = Summaries.ToList();
+
+            // Добавляем новое summary в список
+
+            // Добавляем строку "Хорошая погода" в конец списка
+            list.Add("Хорошая погода");
+
+            // Возвращаем обновленный список как массив строк
+            return list.ToArray();
+        }
+
+
     }
 }
