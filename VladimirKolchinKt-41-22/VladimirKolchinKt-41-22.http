@@ -1,0 +1,6 @@
+@VladimirKolchinKt_41_22_HostAddress = http://localhost:5255
+
+GET {{VladimirKolchinKt_41_22_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
